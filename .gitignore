@@ -1,6 +1,7 @@
-# Node
+# Node / React
 node_modules/
 dist/
+*.log
 
 # Python
 venv/
@@ -8,15 +9,23 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.sqlite3
 
 # Django
 /media/
 staticfiles/
+*.pot
+*.py[cod]
+*.mo
 
 # Environment
 .env
 
-# IDE/editor
+# IDE / Editor
 .vscode/
 .idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific
+.DS_Store
+Thumbs.db
