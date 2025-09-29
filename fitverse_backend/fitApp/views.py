@@ -1,8 +1,12 @@
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import LoginSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
+from .models import User
+from .serializers import UserSerializer
+# from .permissions import IsAdminUserRole
 
 class RoleLoginView(APIView):
     def post(self, request):
@@ -18,3 +22,14 @@ class RoleLoginView(APIView):
             'role': user.role,
             'username': user.username
         }, status=status.HTTP_200_OK)
+    
+
+class MemberViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.filter(role='member')
+    serializer_class = UserSerializer
+    # permission_classes = [IsAdminUserRole]
+
+class TrainerViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.filter(role='trainer')
+    serializer_class = UserSerializer
+    # permission_classes = [IsAdminUserRole]
