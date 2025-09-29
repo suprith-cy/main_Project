@@ -27,9 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Custom User Model
-AUTH_USER_MODEL = 'fitApp.User'
-
 
 CORS_ALLOW_ALL_ORIGINS = True
 
