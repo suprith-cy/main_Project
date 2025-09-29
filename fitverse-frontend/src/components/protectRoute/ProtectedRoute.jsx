@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 
 function ProtectedRoute({ children, role }) {
   const token = localStorage.getItem("access");   // JWT token from login
-  const userRole = localStorage.getItem("role").toLowerCase(); // role stored on login
+  const userRole = localStorage.getItem("role"); // role stored on login
   console.log("ProtectedRoute - role:", role, "userRole:", userRole);
 
   if (!token) {
