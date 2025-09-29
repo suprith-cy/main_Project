@@ -3,6 +3,11 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Trainer from "./pages/Trainer";
 import Member from "./pages/Member";
+import AdminLayout from "./components/AdminLayout";
+import Dashboard from "./pages/admin/Dashboard";
+import Members from "./pages/admin/Members";
+import Trainers from "./pages/admin/Trainers";
+import Profile from "./pages/admin/Profile";
 
 
 function App() {
@@ -11,7 +16,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin />} />
+        {/* Admin section with sidebar */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="members" element={<Members />} />
+          <Route path="trainers" element={<Trainers />} />
+          <Route path="profile" element={<Profile />} />
+          <Route index element={<Navigate to="dashboard" />} /> 
+        </Route>
         <Route path="/trainer" element={<Trainer />} />
         <Route path="/member" element={<Member />} />
       </Routes>

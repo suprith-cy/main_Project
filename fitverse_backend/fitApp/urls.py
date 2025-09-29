@@ -11,6 +11,6 @@ router.register(r'admin/trainers', TrainerViewSet, basename='trainers')
 urlpatterns = [
     path('login/', RoleLoginView.as_view(), name='role_login'),  # role-based login
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # refresh JWT
-    path('api/', include(router.urls)),
+    path('routes/', include(router.urls)),
 ]
 
