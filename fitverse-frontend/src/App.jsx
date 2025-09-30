@@ -3,7 +3,15 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Trainer from "./pages/Trainer";
 import Member from "./pages/Member";
+
+import AdminLayout from "./components/AdminLayout";
+import Dashboard from "./pages/admin/Dashboard";
+import Members from "./pages/admin/Members";
+import Trainers from "./pages/admin/Trainers";
+import Profile from "./pages/admin/Profile";
+
 import ProtectedRoute from "./components/protectRoute/ProtectedRoute";
+
 
 function App() {
   return (
@@ -11,11 +19,21 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
+        {/* Admin section with sidebar */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="members" element={<Members />} />
+          <Route path="trainers" element={<Trainers />} />
+          <Route path="profile" element={<Profile />} />
+          <Route index element={<Navigate to="dashboard" />} /> 
+        </Route>
+        <Route path="/trainer" element={<Trainer />} />
+        <Route path="/member" element={<Member />} />
 
         <Route
           path="/admin"
           element={
-            <ProtectedRoute role="admin">
+            <ProtectedRoute role="Admin">
               <Admin />
             </ProtectedRoute>
           }
@@ -23,7 +41,7 @@ function App() {
         <Route
           path="/trainer"
           element={
-            <ProtectedRoute role="trainer">
+            <ProtectedRoute role="Trainer">
               <Trainer />
             </ProtectedRoute>
           }
@@ -31,7 +49,7 @@ function App() {
         <Route
           path="/member"
           element={
-            <ProtectedRoute role="member">
+            <ProtectedRoute role="Member">
               <Member />
             </ProtectedRoute>
           }
