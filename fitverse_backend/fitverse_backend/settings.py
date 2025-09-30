@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
+    'trainer',
+
 ]
 
 REST_FRAMEWORK = {
@@ -51,6 +53,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

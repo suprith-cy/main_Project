@@ -5,6 +5,7 @@ from rest_framework import status
 from .serializers import LoginSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import UserTable
+from rest_framework.permissions import IsAuthenticated
 from .serializers import UserSerializer
 from .models import AdminMember, AdminTrainer
 from .serializers import AdminMemberSerializer, AdminTrainerSerializer
@@ -25,6 +26,16 @@ class RoleLoginView(APIView):
             'role': user.role,
             'username': user.username
         }, status=status.HTTP_200_OK)
+    
+
+class ProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    print("ProfileView called")
+
+    def get(self, request):
+        user = UserTable.objects.first()
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
     
 
 class MemberViewSet(viewsets.ModelViewSet):

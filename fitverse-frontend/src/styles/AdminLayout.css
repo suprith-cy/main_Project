@@ -17,6 +17,10 @@
   height: 100%; /* full height */
 }
 
+button:hover {
+  background-color: #ff2020;
+}
+
 .sidebar-title {
   font-size: 22px;
   font-weight: bold;
@@ -47,8 +51,6 @@
 /* Main content */
 .main-content {
   flex: 1;               /* take up remaining space */
-  padding: 20px;
-  background-color: #d06d6d;
   overflow-y: auto;
   height: 100%;          /* full height of container */
 }
