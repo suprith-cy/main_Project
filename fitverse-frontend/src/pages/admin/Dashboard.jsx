@@ -100,6 +100,15 @@ export default function Dashboard() {
               flex: "2",
               minWidth: "350px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
+              transition: "transform 0.3s, box-shadow 0.3s"
+            }}
+             onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-5px)";
+              e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.4)";
             }}
           >
             <h2 style={{ fontSize: "22px", marginBottom: "20px", textAlign: "center" }}>Members by Plan</h2>
