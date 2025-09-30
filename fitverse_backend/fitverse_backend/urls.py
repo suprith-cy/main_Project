@@ -20,5 +20,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
+    path('', include('fitApp.urls')),
+    path('trainers/', include('trainer.urls')),
+=======
     path('api/', include('fitApp.urls')),
+>>>>>>> 0a643a2e5a82b117797ae613ff398f50c54e05fd
 ]
