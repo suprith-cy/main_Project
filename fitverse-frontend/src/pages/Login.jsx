@@ -28,13 +28,14 @@ export default function Login() {
 
       // redirect based on role
       switch (res.data.role) {
-        case "admin":
+        case "Admin":
+          console.log("Navigating to admin");
           navigate("/admin");
           break;
-        case "trainer":
+        case "Trainer":
           navigate("/trainer");
           break;
-        case "member":
+        case "Member":
           navigate("/member");
           break;
         default:

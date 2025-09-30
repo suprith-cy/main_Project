@@ -27,9 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Custom User Model
-AUTH_USER_MODEL = 'fitApp.User'
-
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -47,6 +44,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
+    'trainer',
+
 ]
 
 REST_FRAMEWORK = {
@@ -54,6 +53,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
