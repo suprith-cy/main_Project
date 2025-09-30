@@ -1,0 +1,54 @@
+.admin-container {
+  display: flex;
+  height: 100vh;   /* full viewport height */
+  width: 100vw;    /* full viewport width */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #444;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* full height */
+}
+
+.sidebar-title {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 16px;
+  margin: 0;
+  border-bottom: 1px solid #555;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 10px;
+}
+
+.nav-link {
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #555;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;               /* take up remaining space */
+  padding: 20px;
+  background-color: #f4f4f4;
+  overflow-y: auto;
+  height: 100%;          /* full height of container */
+}
