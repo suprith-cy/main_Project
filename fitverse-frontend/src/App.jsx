@@ -11,6 +11,14 @@ import Trainers from "./pages/admin/Trainers";
 import Profile from "./pages/admin/Profile";
 
 import ProtectedRoute from "./components/protectRoute/ProtectedRoute";
+import MemberLayout from "./components/MemberLayout";
+import MemberDashboard from "./pages/member/MemberDashboard";
+import MemberProfile from "./pages/member/Profile";
+import WorkoutPlan from "./pages/member/Workoutplan";
+import Attendance from "./pages/member/Attendance";
+import Bmi from "./pages/member/Bmi";
+import DietPlan from "./pages/member/DietPlan";
+
 
 
 function App() {
@@ -28,8 +36,15 @@ function App() {
           <Route index element={<Navigate to="dashboard" />} /> 
         </Route>
         <Route path="/trainer" element={<Trainer />} />
-        <Route path="/member" element={<Member />} />
-
+        {/* member routes */}
+        <Route path="/member" element={<MemberLayout />} />
+        <Route path="/member/dashboard" element={<MemberDashboard />} />
+        <Route path="/member/profile" element={<Profile />} />
+        <Route path="/member/workout-plan" element={<WorkoutPlan/>} />
+        <Route path="/member/attendance" element={<Attendance/>} />
+        <Route path="/member/Bmi" element={<Bmi/>} />
+        <Route path="/member/diet-plan" element={<DietPlan/>} />
+ 
         <Route
           path="/admin"
           element={
