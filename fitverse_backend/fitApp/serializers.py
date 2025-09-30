@@ -31,4 +31,4 @@ class LoginSerializer(serializers.Serializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserTable
-        fields = ['id', 'username', 'password', 'role']
+        fields = ['id', 'username', 'email', 'password', 'role']
