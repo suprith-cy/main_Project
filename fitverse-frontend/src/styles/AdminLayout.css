@@ -17,6 +17,10 @@
   height: 100%; /* full height */
 }
 
+button:hover {
+  background-color: #ff2020;
+}
+
 .sidebar-title {
   font-size: 22px;
   font-weight: bold;

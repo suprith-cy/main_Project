@@ -22,9 +22,9 @@ const Profile = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center",  backgroundColor: "#444", padding: "20px", margin: "20px" }}>
-      <div style={{ backgroundColor: "#7e7777ff",color: "#000000ff", padding: "20px", margin: "20px", width: "300px", borderRadius: "10px" }}>
-        <h1 className="text-2xl font-bold"><u>Admin Profile</u></h1>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center",color: "#000000", backgroundColor: "#444", padding: "20px", margin: "20px" }}>
+      <div style={{ backgroundColor: "#7e7777ff",color: "#000000", padding: "20px", margin: "20px", width: "300px", borderRadius: "10px" }}>
+        <h1><u>Admin Profile</u></h1>
         <p><b>UserName</b> : {profile ? profile.username : "Loading..."}</p>
         <p><b>Email</b> : {profile ? profile.email : "Loading..."}</p>
         <p><b>Role</b> : {profile ? profile.role : "Loading..."}</p>
