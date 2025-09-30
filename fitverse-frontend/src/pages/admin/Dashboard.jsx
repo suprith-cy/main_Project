@@ -21,9 +21,10 @@ export default function Dashboard() {
         alignItems: "center",
         color: "#ffffff",
         backgroundColor: "#444",
-        margin:"20px",
+        marginLeft:"20px",
+        marginRight:"20px",
         padding: "40px 20px",
-        minHeight: "100vh",
+        height: "100%",
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       }}
     >
