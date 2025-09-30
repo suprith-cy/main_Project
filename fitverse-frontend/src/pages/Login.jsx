@@ -28,13 +28,14 @@ export default function Login() {
 
       // redirect based on role
       switch (res.data.role) {
-        case "admin":
+        case "Admin":
+          console.log("Navigating to admin");
           navigate("/admin");
           break;
-        case "trainer":
+        case "Trainer":
           navigate("/trainer");
           break;
-        case "member":
+        case "Member":
           navigate("/member");
           break;
         default:
@@ -52,7 +53,7 @@ export default function Login() {
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <h2>Login</h2>
+      <h1>Login</h1>
       <input name="username" placeholder="Username" onChange={handleChange} />
       <input
         type="password"

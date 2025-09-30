@@ -4,13 +4,14 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import LoginSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import User
+from .models import UserTable
 from .serializers import UserSerializer
-# from .permissions import IsAdminUserRole
 
 class RoleLoginView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
+        if not serializer.is_valid():
+            print(serializer.errors)  # <-- see the exact validation error
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
 
@@ -25,11 +26,9 @@ class RoleLoginView(APIView):
     
 
 class MemberViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.filter(role='member')
+    queryset = UserTable.objects.filter(role='member')
     serializer_class = UserSerializer
-    # permission_classes = [IsAdminUserRole]
 
 class TrainerViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.filter(role='trainer')
+    queryset = UserTable.objects.filter(role='trainer')
     serializer_class = UserSerializer
-    # permission_classes = [IsAdminUserRole]

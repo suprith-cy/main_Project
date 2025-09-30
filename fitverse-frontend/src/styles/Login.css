@@ -1,6 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #6b73ff, #000dff);
+  background: linear-gradient(135deg, #ff0000,#000000, #000dff);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,23 +8,33 @@ body {
 }
 
 form {
-  background: #fff;
+  background: transparent;
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 30px #ffffff;
   width: 350px;
 }
 
-h2 {
+
+
+h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #ffffff;
 }
 
-input, select {
+input {
+  width: 92%;
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+select {
   width: 100%;
   padding: 12px;
-  margin: 10px 0;
+  margin: 15px 0;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
@@ -33,7 +43,7 @@ input, select {
 button {
   width: 100%;
   padding: 12px;
-  background-color: #6b73ff;
+  background-color: #2f00ff;
   border: none;
   border-radius: 8px;
   color: white;
@@ -44,11 +54,11 @@ button {
 }
 
 button:hover {
-  background-color: #000dff;
+  background-color: #12e342;
 }
 
 p {
   text-align: center;
-  color: green;
+  color: rgb(255, 255, 255);
   margin-top: 10px;
 }
