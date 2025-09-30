@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import check_password
 from .models import UserTable
+from .models import AdminMember, AdminTrainer
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -32,3 +33,16 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserTable
         fields = ['id', 'username', 'email', 'password', 'role']
+
+
+class AdminMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AdminMember
+        fields = '__all__'
+
+
+class AdminTrainerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AdminTrainer
+        fields = '__all__'
+

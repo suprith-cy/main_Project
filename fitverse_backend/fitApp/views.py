@@ -7,10 +7,11 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .models import UserTable
 from rest_framework.permissions import IsAuthenticated
 from .serializers import UserSerializer
+
 from django.http import JsonResponse
 from django.db.models import Count, Sum, F
 from .models import AdminMember, AdminTrainer
-
+from .serializers import AdminMemberSerializer, AdminTrainerSerializer
 
 class RoleLoginView(APIView):
     def post(self, request):
@@ -82,9 +83,10 @@ def plan_counts(request):
 
     
 class MemberViewSet(viewsets.ModelViewSet):
-    queryset = UserTable.objects.filter(role='member')
-    serializer_class = UserSerializer
+    queryset = AdminMember.objects.all()
+    serializer_class = AdminMemberSerializer
+
 
 class TrainerViewSet(viewsets.ModelViewSet):
-    queryset = UserTable.objects.filter(role='trainer')
-    serializer_class = UserSerializer
+    queryset = AdminTrainer.objects.all()
+    serializer_class = AdminTrainerSerializer
