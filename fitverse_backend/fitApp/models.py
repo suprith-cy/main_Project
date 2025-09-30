@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import make_password
 class UserTable(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=50, unique=True)
+    email = models.EmailField()
     password = models.CharField(max_length=128)
     role = models.CharField(max_length=20)
 
