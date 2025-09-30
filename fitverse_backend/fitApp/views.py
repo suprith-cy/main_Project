@@ -6,6 +6,8 @@ from .serializers import LoginSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import UserTable
 from .serializers import UserSerializer
+from .models import AdminMember, AdminTrainer
+from .serializers import AdminMemberSerializer, AdminTrainerSerializer
 
 class RoleLoginView(APIView):
     def post(self, request):
@@ -26,9 +28,10 @@ class RoleLoginView(APIView):
     
 
 class MemberViewSet(viewsets.ModelViewSet):
-    queryset = UserTable.objects.filter(role='member')
-    serializer_class = UserSerializer
+    queryset = AdminMember.objects.all()
+    serializer_class = AdminMemberSerializer
+
 
 class TrainerViewSet(viewsets.ModelViewSet):
-    queryset = UserTable.objects.filter(role='trainer')
-    serializer_class = UserSerializer
+    queryset = AdminTrainer.objects.all()
+    serializer_class = AdminTrainerSerializer
