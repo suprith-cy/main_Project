@@ -2,77 +2,129 @@
 
 .trainers-container {
   padding: 20px;
+  font-family: "Inter", sans-serif;
+  background: #f9fafb;
+  min-height: 100vh;
 }
 
+/* Header */
 .trainers-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  gap: 12px;
+}
+
+.trainers-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
   color: white;
   border: none;
-  width: 150px;
-  text-align: center;
-  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0 3px 6px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background: #1d4ed8;
+  background: linear-gradient(90deg, #1d4ed8, #1e3a8a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
 }
 
+/* Card */
 .card {
   background: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow-x: auto; /* Prevents table breaking on mobile */
 }
 
+/* Table */
 .trainers-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 650px; /* Keeps structure for horizontal scroll */
 }
 
-.trainers-table th,
-.trainers-table td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+.trainers-table th {
+  padding: 12px;
   text-align: left;
+  background: #f3f4f6;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
 }
 
+.trainers-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #374151;
+}
+
+.trainers-table tr:hover {
+  background: #f9fafb;
+  transition: 0.2s ease-in-out;
+}
+
+/* Actions */
 .actions {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .btn-edit,
 .btn-delete {
-  padding: 4px 8px;
-  border-radius: 5px;
+  padding: 6px 12px;
+  border-radius: 6px;
   cursor: pointer;
   border: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .btn-edit {
   background: #fbbf24;
   color: white;
+  box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
+}
+.btn-edit:hover {
+  background: #d97706;
+  transform: scale(1.05);
 }
 
 .btn-delete {
   background: #ef4444;
   color: white;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+}
+.btn-delete:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
 }
 
-/* Badge styles (optional if you want to indicate status) */
+/* Badge styles */
 .badge {
-  padding: 4px 8px;
-  border-radius: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
 }
 
 .badge.active {
@@ -96,44 +148,116 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal {
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 24px;
+  border-radius: 12px;
   width: 400px;
+  max-width: 95%; /* Responsive modal */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-in-out;
 }
 
 .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .form-group label {
   display: block;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 6px;
+  font-size: 14px;
+  color: #111827;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
+  padding: 10px;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+  outline: none;
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .btn-secondary {
   background: #e5e7eb;
-  color: black;
+  color: #111827;
   border: none;
   padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .btn-primary {
+    width: auto;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .trainers-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .trainers-table {
+    min-width: 100%;
+    display: block;
+    overflow-x: auto; /* Enables horizontal scroll */
+  }
+
+  .trainers-table th,
+  .trainers-table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    width: 100%;
+    text-align: center;
+  }
 }
